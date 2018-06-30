@@ -1,0 +1,58 @@
+import React from 'react'
+import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
+import get from 'lodash/get'
+import styled from 'styled-components'
+
+import SecondaryLayout from '../components/SecondaryLayout'
+import Title from '../components/Title'
+import Bio from '../components/Bio'
+
+const Actions = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+`
+
+const BlogPostTemplate =
+  ({
+    data: {
+      site: {
+        siteMetadata: metadata
+      },
+      markdownRemark: post 
+    },
+    location
+  }) => (
+    <SecondaryLayout location={ location }>
+      <Helmet title={`${ post.frontmatter.title } | ${ metadata.title }`} />
+      <Title>{ post.frontmatter.title }</Title>
+      <small>
+        { post.frontmatter.date }
+      </small>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    </SecondaryLayout>
+  )
+
+export default BlogPostTemplate
+
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+      }
+    }
+  }
+`

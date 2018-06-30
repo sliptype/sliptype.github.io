@@ -1,0 +1,9 @@
+html {
+  font-family: Georgia;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(1, 186, 239, 1);
+}
