@@ -33,4 +33,4 @@ If you've used [React styled-components](https://www.styled-components.com/) bef
 * Styles are checked at compile-time
 * No template literals
 
-I've been pleasantly surprised at how easily this allows for maintainable styling!
+I've been pleasantly surprised with how easy this makes writing maintainable styles!
