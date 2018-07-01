@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-styled-components="fAzEyp jPgeOU imbAtr kQNDdu">
+/* sc-component-id: sc-bdVaJa */
+.jPgeOU{margin:0 auto;max-width:50rem;padding:2rem 2rem;font-size:1.1rem;background-color:white;}
+/* sc-component-id: sc-bwzfXH */
+.imbAtr{margin-bottom:0;}
+/* sc-component-id: sc-htpNat */
+.kQNDdu{margin-bottom:0;font-size:2.8rem;line-height:3.6rem;} .kQNDdu a{color:black;} @media (max-width:50rem){.kQNDdu{margin-top:0;}}
+/* sc-component-id: sc-keyframes-fAzEyp */
+@-webkit-keyframes fAzEyp{to{height:25vw;max-height:50vh;min-height:5vh;}} @keyframes fAzEyp{to{height:25vw;max-height:50vh;min-height:5vh;}}</style><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">Styling in Cycle.js | Sebastian Klingler | Front-end Engineer</title><link as="script" rel="preload" href="/1-bd8f636426f6177b1da7.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-0757b3066b00de99e59a.js"/><link as="script" rel="preload" href="/0-5def4a6e669714359c6a.js"/><link as="script" rel="preload" href="/app-89b7f19131a37bfac478.js"/><link as="script" rel="preload" href="/webpack-runtime-131c83937a24c83b4d93.js"/><link rel="preload" href="/static/d/path---styling-in-cyclejs-cb-1-899-NNWkNDkIl2WH4vVNG4zDkdUW8Gs.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div class="sc-bdVaJa jPgeOU" data-reactroot=""><h3 class="sc-bwzfXH imbAtr"><a href="/">@sliptype</a></h3><h1 class="sc-htpNat kQNDdu">Styling in Cycle.js</h1><small>June 17, 2018</small><div><p>After falling in love with <a href="https://cycle.js.org/">Cycle.js</a> for it’s explict, functional, and reactive paradigm, I realized that there was no accepted way to manage the styling of a large application.</p>
+<p><a href="https://github.com/snabbdom/snabbdom">Snabbdom</a> provides a style module, but it merely applies inline styles and clutters the DOM. The limitations of inline styles (no :hover for example) make this a non-option in any non-trival application.</p>
+<p>Another suggested method was using <a href="https://github.com/typestyle/typestyle">typestyle</a> to create hashed classnames to apply styles to elements. Typestyle makes css type-safe, which is an amazing benefit, but using it in Cycle.js introduces a side-effect: Styles are injected directly into the head <em>without going through a driver</em>. This goes against the architecture outlined by Cycle.  </p>
+<p>After reading some discussion on the subject, it seemed the consensus was to build a snabbdom module that would use typestyle to apply styles to elements and make the classname completely implicit. Thus, <a href="https://github.com/sliptype/snabbdom-typestyle">snabbdom-typestyle</a> was born.</p>
+<p>Snabbdom-typestyle also injects styles into the head, but because it is part of the DOMDriver it follows the Cycle.js paradigm. It allows you to pass style objects directly to your elements and let snabbdom take care of the rest! So you can do cool things like:</p>
+<div class="gatsby-highlight" data-language="javascript">
+      <pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">main</span> <span class="token operator">=</span> <span class="token punctuation">(</span>listLength<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token string">'display'</span>   <span class="token punctuation">:</span> listLength <span class="token operator">?</span> <span class="token string">'block'</span> <span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+  <span class="token string">'position'</span>  <span class="token punctuation">:</span> <span class="token string">'relative'</span><span class="token punctuation">,</span>
+  <span class="token string">'z-index'</span>   <span class="token punctuation">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span>
+  <span class="token string">'border-top'</span><span class="token punctuation">:</span> <span class="token string">'1px solid #e6e6e6'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+      </div>
+<div class="gatsby-highlight" data-language="javascript">
+      <pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">renderMainSection</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> listVDom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">section</span><span class="token punctuation">(</span><span class="token string">'.main'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> css<span class="token punctuation">:</span> styles<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>state<span class="token punctuation">.</span>list<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+<p>If you’ve used <a href="https://www.styled-components.com/">React styled-components</a> before this should look familiar, but there are some notable differences:</p>
+<ul>
+<li>Styles are nested within the component rather than being wrapped around it</li>
+<li>Styles are checked at compile-time</li>
+<li>No template literals</li>
+</ul>
+<p>I’ve been pleasantly surprised at how easily this allows for maintainable styling!</p></div></div></div><script>
+            
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'undefined', 'auto');
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"styling-in-cyclejs-cb1","path":"/styling-in-cyclejs/"};window.dataPath="path---styling-in-cyclejs-cb-1-899-NNWkNDkIl2WH4vVNG4zDkdUW8Gs";/*]]>*/</script><script src="/webpack-runtime-131c83937a24c83b4d93.js" async=""></script><script src="/app-89b7f19131a37bfac478.js" async=""></script><script src="/0-5def4a6e669714359c6a.js" async=""></script><script src="/component---src-templates-blog-post-js-0757b3066b00de99e59a.js" async=""></script><script src="/1-bd8f636426f6177b1da7.js" async=""></script></body></html>
