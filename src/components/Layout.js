@@ -9,6 +9,11 @@ import Background from './Background'
 const Content = styled(AppContainer)`
   position: relative;
   margin: -10rem auto 0;
+
+  @media (max-width: 50rem) {
+    margin: 0 auto;
+  }
+
   max-width: 50rem;
   padding: 2rem 2rem;
   z-index: 2;
