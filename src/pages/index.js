@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Bio from '../components/Bio'
 import 'normalize.css'
+import 'prismjs/themes/prism-tomorrow.css'
 import '../styles.css'
 
 const PostTitle = styled.h3`
