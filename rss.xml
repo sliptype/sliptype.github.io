@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Sebastian Klingler | Front-end Engineer]]></title><description><![CDATA[Front-end Engineer]]></description><link>https://sliptype.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Sun, 01 Jul 2018 17:59:53 GMT</lastBuildDate><item><title><![CDATA[Styling in Cycle.js]]></title><description><![CDATA[After falling in love with  Cycle.js  for it’s explict, functional, and reactive paradigm, I realized that there was no accepted way to…]]></description><link>https://sliptype.github.io//styling-in-cyclejs/</link><guid isPermaLink="false">https://sliptype.github.io//styling-in-cyclejs/</guid><pubDate>Sun, 17 Jun 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;After falling in love with &lt;a href=&quot;https://cycle.js.org/&quot;&gt;Cycle.js&lt;/a&gt; for it’s explict, functional, and reactive paradigm, I realized that there was no accepted way to manage the styling of a large application.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Sebastian Klingler | Front-end Engineer]]></title><description><![CDATA[Front-end Engineer]]></description><link>https://sliptype.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Mon, 02 Jul 2018 01:55:23 GMT</lastBuildDate><item><title><![CDATA[Styling in Cycle.js]]></title><description><![CDATA[After falling in love with  Cycle.js  for it’s explict, functional, and reactive paradigm, I realized that there was no accepted way to…]]></description><link>https://sliptype.github.io//styling-in-cyclejs/</link><guid isPermaLink="false">https://sliptype.github.io//styling-in-cyclejs/</guid><pubDate>Sun, 17 Jun 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;After falling in love with &lt;a href=&quot;https://cycle.js.org/&quot;&gt;Cycle.js&lt;/a&gt; for it’s explict, functional, and reactive paradigm, I realized that there was no accepted way to manage the styling of a large application.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/snabbdom/snabbdom&quot;&gt;Snabbdom&lt;/a&gt; provides a style module, but it merely applies inline styles and clutters the DOM. The limitations of inline styles (no :hover for example) make this a non-option in any non-trival application.&lt;/p&gt;
 &lt;p&gt;Another suggested method was using &lt;a href=&quot;https://github.com/typestyle/typestyle&quot;&gt;typestyle&lt;/a&gt; to create hashed classnames to apply styles to elements. Typestyle makes css type-safe, which is an amazing benefit, but using it in Cycle.js introduces a side-effect: Styles are injected directly into the head &lt;em&gt;without going through a driver&lt;/em&gt;. This goes against the architecture outlined by Cycle.  &lt;/p&gt;
 &lt;p&gt;After reading some discussion on the subject, it seemed the consensus was to build a snabbdom module that would use typestyle to apply styles to elements and make the classname completely implicit. Thus, &lt;a href=&quot;https://github.com/sliptype/snabbdom-typestyle&quot;&gt;snabbdom-typestyle&lt;/a&gt; was born.&lt;/p&gt;
@@ -22,7 +22,7 @@
 &lt;li&gt;Styles are checked at compile-time&lt;/li&gt;
 &lt;li&gt;No template literals&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I’ve been pleasantly surprised with how easy this makes writing maintainable styles!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SmartCert - Decentralized Certifications]]></title><description><![CDATA[SmartCert  is a decentralized application that allows corporations to issue certifications and individuals to provably display those…]]></description><link>https://sliptype.github.io//smartcert/</link><guid isPermaLink="false">https://sliptype.github.io//smartcert/</guid><pubDate>Mon, 28 May 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.smartcert.app/&quot;&gt;SmartCert&lt;/a&gt; is a decentralized application that allows corporations to issue certifications and individuals to provably display those certifications.&lt;/p&gt;
+&lt;p&gt;I’ve been pleasantly surprised with how easy this makes writing maintainable styles!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SmartCert]]></title><description><![CDATA[SmartCert  is a decentralized application that allows corporations to issue certifications and individuals to provably display those…]]></description><link>https://sliptype.github.io//smartcert/</link><guid isPermaLink="false">https://sliptype.github.io//smartcert/</guid><pubDate>Mon, 28 May 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.smartcert.app/&quot;&gt;SmartCert&lt;/a&gt; is a decentralized application that allows corporations to issue certifications and individuals to provably display those certifications.&lt;/p&gt;
 &lt;h2&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Upon receiving a certification (from Amazon for example), the burden of proof lies with whomever is trying to verify that you hold that certification. A propsective employer would need to contact Amazon and provide the number associated with your certification to verify that you actually received it.&lt;/p&gt;
 &lt;p&gt;SmartCert utilizes the blockchain to make this process trust-less. The certifications are distributed from an issuer address to a holder address. Verification then becomes as simple as signing a message to prove ownership of the address holding the certification.&lt;/p&gt;
@@ -67,4 +67,86 @@
 &lt;p&gt;&lt;a href=&quot;http://solidity.readthedocs.io/&quot;&gt;Solidity&lt;/a&gt; was used to develop the smart contract containing the business logic.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://truffleframework.com/&quot;&gt;Truffle&lt;/a&gt; was used to deploy SmartCert on the Ropsten test net.&lt;/p&gt;
 &lt;h1&gt;Contribute&lt;/h1&gt;
-&lt;p&gt;I’m open to any and all contribution! Find the repo &lt;a href=&quot;https://gitlab.com/sliptype/smartcert&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;I’m open to any and all contribution! Find the repo &lt;a href=&quot;https://gitlab.com/sliptype/smartcert&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Tacky]]></title><description><![CDATA[Tacky  is a scenario discovery and management tool. It allows you to create a hierarchical description of user interactions with a system…]]></description><link>https://sliptype.github.io//tacky/</link><guid isPermaLink="false">https://sliptype.github.io//tacky/</guid><pubDate>Wed, 20 Sep 2017 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;http://www.the-tacky.com/&quot;&gt;Tacky&lt;/a&gt; is a scenario discovery and management tool. It allows you to create a hierarchical description of user interactions with a system and transform it into a list of discrete test cases.&lt;/p&gt;
+&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;The linear way of writing test scenarios leaves a lot to be desired. Representing the state of a system without abstracting away the steps to get there becomes tedious and error-prone. &lt;/p&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;In Tacky, you create rows (known as layers) that contain steps (known as cases). A layer can have multiple cases. For example, a todo app could look like this:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/tacky-35bb635df941324433d0963c71b23ea1-cc1f4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 56.14754098360656%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABLElEQVQoz51S2WqEQBCc//+PPOQ/FvIsCwrGAw/UZL3va6zYnayYxBjYgqJnuqvLthmBP7AsCx6pibOG966AU90QtTmc+ga9CJH01aY5Mhb3wp7yS6ikDp7tFzyZl42vqylBHvQRDw33bKcBzdhz7Ofxc6oTvcAJJBY0ckArR3TLhGLqsOAcom1b1HX9i03ToCpLvEURojBEGAR8rqqKaz/1lO+6DiLPc8RxjDRNkSQJR7oT6W6aJq7XKxRFgWVbSNJk0+9JWvIS5EwJarRtG47jcCHLMpTrhJTTdZ2j53koioLrpDMMg/ssy+I76YWUEsRpmtD3Pcd7jjjPM4ZhYNKZFk9DkBFNraoqNE1jc/qYwAOgXQXrTmlq13U5+r7Pu/332Rzx20tY/2KPDw9sU7GpRCyXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Tacky&quot;
+        title=&quot;&quot;
+        src=&quot;/static/tacky-35bb635df941324433d0963c71b23ea1-fb8a0.png&quot;
+        srcset=&quot;/static/tacky-35bb635df941324433d0963c71b23ea1-1a291.png 148w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-2bc4a.png 295w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-fb8a0.png 590w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-526de.png 885w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-fa2eb.png 1180w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-cc1f4.png 1464w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;Regarding the above as a tree, the paths that need to be followed to exhaustively test the system are those from root to leaf. A tester can mark the branches as they are completed and know at a glance which paths still need testing. Tacky can also display the branches as a list of discrete test cases:&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-f6e09.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 108.75656742556919%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB3klEQVQ4y5WUh47CMBBE8/+fhkTvRaJ3CIEjwEHCXt4iR06AwEUaubAeDzvrde73u7wCX2jN07+9O+fIi88c2l5+ZHnyxPv1ZXTcyMx3dc+OSX/Ou5tAGIaRyghylyAag/CBrDNOEASy3+9f4udwkMViIdPpVGazmbjbrRyifc/znmLZu91uD8JtFLherxNYrVay2WwUzM3adV2NN7DX1+v1QTifz6XZbEqj0ZBisSiVSkXq9bpMJhO9mUPfQAnJ03A4VKJSqSTlclmRVpIFYrk4JiQ/3W5Xer2eDAYD6ff7GrDb7XQ0YP0OcQ4hhJkFYA7O57NcLhfxfT8G6yzA5UCCZPsm4yIj6sfjsQKziHmXw9hlHMQAymM0GulhxuVymUlgI3YZmRBVq1U1JZfLST6fl06no/sQmsRnIZFDjDAuUz6MhszUYhaeXCZfdjEzZzRmnE4nBfPj8fgEE0f6NIfpQzb4u0bJIXqKrwgNlJD/bRdo2gTeMk4DlGcVeOLptdttzR+vpFarqUm4bRf0J2NiUygRCHi/kAGj5tMTfGoOEKIEEqMO0ChQbA78qzlQNigsFApaPihlbLVacR1+UolhicKmORiQTxRC+I2yRHOgbWOMtntafGr+LSCD6w+Qo4dM5lptzgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Tacky&quot;
+        title=&quot;&quot;
+        src=&quot;/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-fb8a0.png&quot;
+        srcset=&quot;/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-1a291.png 148w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-2bc4a.png 295w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-fb8a0.png 590w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-526de.png 885w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-f6e09.png 1142w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h2&gt;Stack&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://vuejs.org/&quot;&gt;Vue.js&lt;/a&gt; was chosen because of how quickly a prototype can be built with it. There is just enough “magic” to make putting together an application a breeze.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://vuex.vuejs.org/&quot;&gt;Vuex&lt;/a&gt; was used as the state container. Having a centralized store makes it easy to save and share Tacky boards.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt; was used to serve the application.&lt;/p&gt;
+&lt;h1&gt;Contribute&lt;/h1&gt;
+&lt;p&gt;I’m open to any and all contribution! Find the repo &lt;a href=&quot;https://gitlab.com/sliptype/tacky&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>

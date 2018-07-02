@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-styled-components="fAzEyp jPgeOU imbAtr kQNDdu">
+/* sc-component-id: sc-bdVaJa */
+.jPgeOU{margin:0 auto;max-width:50rem;padding:2rem 2rem;font-size:1.1rem;background-color:white;}
+/* sc-component-id: sc-bwzfXH */
+.imbAtr{margin-bottom:0;}
+/* sc-component-id: sc-htpNat */
+.kQNDdu{margin-bottom:0;font-size:2.8rem;line-height:3.6rem;} .kQNDdu a{color:black;} @media (max-width:50rem){.kQNDdu{margin-top:0;}}
+/* sc-component-id: sc-keyframes-fAzEyp */
+@-webkit-keyframes fAzEyp{to{height:25vw;max-height:50vh;min-height:5vh;}} @keyframes fAzEyp{to{height:25vw;max-height:50vh;min-height:5vh;}}</style><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">Tacky | Sebastian Klingler | Front-end Engineer</title><link as="script" rel="preload" href="/1-bd8f636426f6177b1da7.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-0757b3066b00de99e59a.js"/><link as="script" rel="preload" href="/0-5def4a6e669714359c6a.js"/><link as="script" rel="preload" href="/app-89b7f19131a37bfac478.js"/><link as="script" rel="preload" href="/webpack-runtime-c54ac2f0f094411b18a5.js"/><link rel="preload" href="/static/d/path---tacky-8-e-1-9d2-SHtwQtnL19UmK3pZAoh8yZLiNdk.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div class="sc-bdVaJa jPgeOU" data-reactroot=""><h3 class="sc-bwzfXH imbAtr"><a href="/">@sliptype</a></h3><h1 class="sc-htpNat kQNDdu">Tacky</h1><small>September 20, 2017</small><div><p><a href="http://www.the-tacky.com/">Tacky</a> is a scenario discovery and management tool. It allows you to create a hierarchical description of user interactions with a system and transform it into a list of discrete test cases.</p>
+<h2>Motivation</h2>
+<p>The linear way of writing test scenarios leaves a lot to be desired. Representing the state of a system without abstracting away the steps to get there becomes tedious and error-prone. </p>
+<h2>Usage</h2>
+<p>In Tacky, you create rows (known as layers) that contain steps (known as cases). A layer can have multiple cases. For example, a todo app could look like this:</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/tacky-35bb635df941324433d0963c71b23ea1-cc1f4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block; ; max-width: 590px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 56.14754098360656%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABLElEQVQoz51S2WqEQBCc//+PPOQ/FvIsCwrGAw/UZL3va6zYnayYxBjYgqJnuqvLthmBP7AsCx6pibOG966AU90QtTmc+ga9CJH01aY5Mhb3wp7yS6ikDp7tFzyZl42vqylBHvQRDw33bKcBzdhz7Ofxc6oTvcAJJBY0ckArR3TLhGLqsOAcom1b1HX9i03ToCpLvEURojBEGAR8rqqKaz/1lO+6DiLPc8RxjDRNkSQJR7oT6W6aJq7XKxRFgWVbSNJk0+9JWvIS5EwJarRtG47jcCHLMpTrhJTTdZ2j53koioLrpDMMg/ssy+I76YWUEsRpmtD3Pcd7jjjPM4ZhYNKZFk9DkBFNraoqNE1jc/qYwAOgXQXrTmlq13U5+r7Pu/332Rzx20tY/2KPDw9sU7GpRCyXAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="Tacky"
+        title=""
+        src="/static/tacky-35bb635df941324433d0963c71b23ea1-fb8a0.png"
+        srcset="/static/tacky-35bb635df941324433d0963c71b23ea1-1a291.png 148w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-2bc4a.png 295w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-fb8a0.png 590w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-526de.png 885w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-fa2eb.png 1180w,
+/static/tacky-35bb635df941324433d0963c71b23ea1-cc1f4.png 1464w"
+        sizes="(max-width: 590px) 100vw, 590px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+<p>Regarding the above as a tree, the paths that need to be followed to exhaustively test the system are those from root to leaf. A tester can mark the branches as they are completed and know at a glance which paths still need testing. Tacky can also display the branches as a list of discrete test cases:</p>
+<p>
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-f6e09.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block; ; max-width: 590px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 108.75656742556919%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB3klEQVQ4y5WUh47CMBBE8/+fhkTvRaJ3CIEjwEHCXt4iR06AwEUaubAeDzvrde73u7wCX2jN07+9O+fIi88c2l5+ZHnyxPv1ZXTcyMx3dc+OSX/Ou5tAGIaRyghylyAag/CBrDNOEASy3+9f4udwkMViIdPpVGazmbjbrRyifc/znmLZu91uD8JtFLherxNYrVay2WwUzM3adV2NN7DX1+v1QTifz6XZbEqj0ZBisSiVSkXq9bpMJhO9mUPfQAnJ03A4VKJSqSTlclmRVpIFYrk4JiQ/3W5Xer2eDAYD6ff7GrDb7XQ0YP0OcQ4hhJkFYA7O57NcLhfxfT8G6yzA5UCCZPsm4yIj6sfjsQKziHmXw9hlHMQAymM0GulhxuVymUlgI3YZmRBVq1U1JZfLST6fl06no/sQmsRnIZFDjDAuUz6MhszUYhaeXCZfdjEzZzRmnE4nBfPj8fgEE0f6NIfpQzb4u0bJIXqKrwgNlJD/bRdo2gTeMk4DlGcVeOLptdttzR+vpFarqUm4bRf0J2NiUygRCHi/kAGj5tMTfGoOEKIEEqMO0ChQbA78qzlQNigsFApaPihlbLVacR1+UolhicKmORiQTxRC+I2yRHOgbWOMtntafGr+LSCD6w+Qo4dM5lptzgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="Tacky"
+        title=""
+        src="/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-fb8a0.png"
+        srcset="/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-1a291.png 148w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-2bc4a.png 295w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-fb8a0.png 590w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-526de.png 885w,
+/static/tacky2-b8d866335b76f3dabecccb99b5b6fafe-f6e09.png 1142w"
+        sizes="(max-width: 590px) 100vw, 590px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </p>
+<h2>Stack</h2>
+<p><a href="https://vuejs.org/">Vue.js</a> was chosen because of how quickly a prototype can be built with it. There is just enough “magic” to make putting together an application a breeze.</p>
+<p><a href="https://vuex.vuejs.org/">Vuex</a> was used as the state container. Having a centralized store makes it easy to save and share Tacky boards.</p>
+<p><a href="https://expressjs.com/">Express</a> was used to serve the application.</p>
+<h1>Contribute</h1>
+<p>I’m open to any and all contribution! Find the repo <a href="https://gitlab.com/sliptype/tacky">here</a></p></div></div></div><script>
+            
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'undefined', 'auto');
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"tacky-8e1","path":"/tacky/"};window.dataPath="path---tacky-8-e-1-9d2-SHtwQtnL19UmK3pZAoh8yZLiNdk";/*]]>*/</script><script src="/webpack-runtime-c54ac2f0f094411b18a5.js" async=""></script><script src="/app-89b7f19131a37bfac478.js" async=""></script><script src="/0-5def4a6e669714359c6a.js" async=""></script><script src="/component---src-templates-blog-post-js-0757b3066b00de99e59a.js" async=""></script><script src="/1-bd8f636426f6177b1da7.js" async=""></script></body></html>
