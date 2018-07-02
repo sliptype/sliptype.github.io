@@ -1,5 +1,5 @@
 ---
-title: SmartCert - Decentralized Certifications
+title: SmartCert
 date: "2018-05-28T22:40:32.169Z"
 ---
 
