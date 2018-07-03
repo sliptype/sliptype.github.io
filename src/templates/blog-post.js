@@ -8,14 +8,6 @@ import SecondaryLayout from '../components/SecondaryLayout'
 import Title from '../components/Title'
 import Bio from '../components/Bio'
 
-const Actions = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-`
-
 const BlogPostTemplate =
   ({
     data: {

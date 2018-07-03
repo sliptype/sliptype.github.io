@@ -3,7 +3,7 @@ title: Styling in Cycle.js
 date: "2018-06-17T22:40:32.169Z"
 ---
 
-After falling in love with [Cycle.js](https://cycle.js.org/) for it's explict, functional, and reactive paradigm, I realized that there was no accepted way to manage the styling of a large application.
+After falling in love with [Cycle.js](https://cycle.js.org/) for it's explicit, functional, and reactive paradigm, I realized that there was no accepted way to manage the styling of a large application.
 
 [Snabbdom](https://github.com/snabbdom/snabbdom) provides a style module, but it merely applies inline styles and clutters the DOM. The limitations of inline styles (no :hover for example) make this a non-option in any non-trival application.
 
