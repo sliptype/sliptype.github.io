@@ -14,10 +14,21 @@ const PostTitle = styled.h3`
   margin-bottom: 0;
 `
 
+const postsPerPage = 3;
+
+const getPageIndex = (location) => Number.parseInt(location.hash.replace('#', ''));
+
+const slicePosts = (posts, pageIndex) => {
+  return posts.slice(0, pageIndex * postsPerPage)
+}
+
+const isLastPage = (posts, pageIndex) => posts.length <= pageIndex * postsPerPage
+
 const Index = (props) => {
 
   const siteTitle = props.data.site.siteMetadata.title
   const posts = props.data.allMarkdownRemark.edges
+  const pageIndex = props.location.hash ? getPageIndex(props.location) + 1 : 1
 
   return (
     <Layout location={props.location}>
@@ -25,7 +36,7 @@ const Index = (props) => {
         <title>{siteTitle}</title>
       </Helmet>
       <Bio />
-      {posts.map(({ node }) => {
+      {slicePosts(posts, pageIndex).map(({ node }) => {
         const title = get(node, 'frontmatter.title') || node.fields.slug
         return (
           <div key={node.fields.slug}>
@@ -39,6 +50,12 @@ const Index = (props) => {
           </div>
         )
       })}
+      { !isLastPage(posts, pageIndex)
+        &&
+        <Link to={ `#${ pageIndex }` }>
+          More...
+        </Link>
+      }
     </Layout>
   )
 }
