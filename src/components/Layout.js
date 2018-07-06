@@ -4,11 +4,12 @@ import styled, { keyframes } from 'styled-components'
 
 import AppContainer from './AppContainer'
 import Title from './Title'
+import Heading from './Heading'
 import Background from './Background'
 
 const Content = styled(AppContainer)`
   position: relative;
-  margin: -10rem auto 0;
+  margin: 0 auto 0;
 
   @media (max-width: 50rem) {
     margin: 0 auto;
@@ -19,10 +20,6 @@ const Content = styled(AppContainer)`
   z-index: 2;
   font-size: 1.1rem;
   background-color: white;
-`
-
-const FlexContainer = styled.div`
-  display: flex;
 `
 
 const slideIn = keyframes`
@@ -39,32 +36,45 @@ const BackgroundContainer = styled.div`
   min-height: 0vh;
   overflow: hidden;
   animation: ${slideIn} .5s ease-in-out forwards;
+  margin-bottom: -10rem;
 `
 
-const getRootPath = () => {
-  if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-    return __PREFIX_PATHS__ + `/`
-  }
+const getTitle = (isIndex) => isIndex
+  ? (
+      <Title>
+        <Link to={ '/' }>
+          @sliptype
+        </Link>
+      </Title>
+    )
+  : (
+      <Heading>
+        <Link to={ '/' }>
+          @sliptype
+        </Link>
+      </Heading>
+    )
 
-  return `/`
+const getBackground = (isIndex) => isIndex
+  ? (
+      <BackgroundContainer>
+        <Background />
+      </BackgroundContainer>
+    )
+  : null
+
+const Layout = ({ location, children }) => {
+  const isIndex = location.pathname === '/'
+
+  return (
+    <div>
+      { getBackground(isIndex) }
+      <Content>
+        { getTitle(isIndex) }
+        { children }
+      </Content>
+    </div>
+  )
 }
-
-const Layout = ({ children }) => (
-  <div>
-    <BackgroundContainer>
-      <Background />
-    </BackgroundContainer>
-    <Content>
-      <FlexContainer>
-        <Title>
-          <Link to={ '/' }>
-            @sliptype
-          </Link>
-        </Title>
-      </FlexContainer>
-      { children }
-    </Content>
-  </div>
-)
 
 export default Layout

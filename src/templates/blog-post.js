@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import styled from 'styled-components'
 
-import SecondaryLayout from '../components/SecondaryLayout'
+import Layout from '../components/Layout'
 import Title from '../components/Title'
 import Bio from '../components/Bio'
 
@@ -18,14 +18,14 @@ const BlogPostTemplate =
     },
     location
   }) => (
-    <SecondaryLayout location={ location }>
+    <Layout location={ location }>
       <Helmet title={`${ post.frontmatter.title } | ${ metadata.title }`} />
       <Title>{ post.frontmatter.title }</Title>
       <small>
         { post.frontmatter.date }
       </small>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-    </SecondaryLayout>
+    </Layout>
   )
 
 export default BlogPostTemplate
