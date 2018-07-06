@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Sebastian Klingler | Front-end Engineer]]></title><description><![CDATA[Front-end Engineer]]></description><link>https://sliptype.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 03 Jul 2018 01:55:33 GMT</lastBuildDate><item><title><![CDATA[Styling in Cycle.js]]></title><description><![CDATA[After falling in love with  Cycle.js  for it’s explicit, functional, and reactive paradigm, I realized that there was no accepted way to…]]></description><link>https://sliptype.github.io//styling-in-cyclejs/</link><guid isPermaLink="false">https://sliptype.github.io//styling-in-cyclejs/</guid><pubDate>Sun, 17 Jun 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;After falling in love with &lt;a href=&quot;https://cycle.js.org/&quot;&gt;Cycle.js&lt;/a&gt; for it’s explicit, functional, and reactive paradigm, I realized that there was no accepted way to manage the styling of a large application.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Sebastian Klingler | Front-end Engineer]]></title><description><![CDATA[Front-end Engineer]]></description><link>https://sliptype.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Fri, 06 Jul 2018 02:00:31 GMT</lastBuildDate><item><title><![CDATA[Styling in Cycle.js]]></title><description><![CDATA[After falling in love with  Cycle.js  for it’s explicit, functional, and reactive paradigm, I realized that there was no accepted way to…]]></description><link>https://sliptype.github.io//styling-in-cyclejs/</link><guid isPermaLink="false">https://sliptype.github.io//styling-in-cyclejs/</guid><pubDate>Sun, 17 Jun 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;After falling in love with &lt;a href=&quot;https://cycle.js.org/&quot;&gt;Cycle.js&lt;/a&gt; for it’s explicit, functional, and reactive paradigm, I realized that there was no accepted way to manage the styling of a large application.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/snabbdom/snabbdom&quot;&gt;Snabbdom&lt;/a&gt; provides a style module, but it merely applies inline styles and clutters the DOM. The limitations of inline styles (no :hover for example) make this a non-option in any non-trival application.&lt;/p&gt;
 &lt;p&gt;Another suggested method was using &lt;a href=&quot;https://github.com/typestyle/typestyle&quot;&gt;typestyle&lt;/a&gt; to create hashed classnames to apply styles to elements. Typestyle makes css type-safe, which is an amazing benefit, but using it in Cycle.js introduces a side-effect: Styles are injected directly into the head &lt;em&gt;without going through a driver&lt;/em&gt;. This goes against the architecture outlined by Cycle.  &lt;/p&gt;
 &lt;p&gt;After reading some discussion on the subject, it seemed the consensus was to build a snabbdom module that would use typestyle to apply styles to elements and make the classname completely implicit. Thus, &lt;a href=&quot;https://github.com/sliptype/snabbdom-typestyle&quot;&gt;snabbdom-typestyle&lt;/a&gt; was born.&lt;/p&gt;
@@ -24,7 +24,7 @@
 &lt;/ul&gt;
 &lt;p&gt;I’ve been pleasantly surprised with how easy this makes writing maintainable styles!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SmartCert]]></title><description><![CDATA[SmartCert  is a decentralized application that allows corporations to issue certifications and individuals to provably display those…]]></description><link>https://sliptype.github.io//smartcert/</link><guid isPermaLink="false">https://sliptype.github.io//smartcert/</guid><pubDate>Mon, 28 May 2018 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.smartcert.app/&quot;&gt;SmartCert&lt;/a&gt; is a decentralized application that allows corporations to issue certifications and individuals to provably display those certifications.&lt;/p&gt;
 &lt;h2&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;Upon receiving a certification (from Amazon for example), the burden of proof lies with whomever is trying to verify that you hold that certification. A propsective employer would need to contact Amazon and provide the number associated with your certification to verify that you actually received it.&lt;/p&gt;
+&lt;p&gt;Upon receiving a certification (from Amazon for example), the burden of proof lies with whomever is trying to verify that you hold that certification. A prospective employer would need to contact Amazon and provide the number associated with your certification to verify that you actually received it.&lt;/p&gt;
 &lt;p&gt;SmartCert utilizes the blockchain to make this process trust-less. The certifications are distributed from an issuer address to a holder address. Verification then becomes as simple as signing a message to prove ownership of the address holding the certification.&lt;/p&gt;
 &lt;p&gt;
   &lt;a
@@ -149,4 +149,48 @@
 &lt;p&gt;&lt;a href=&quot;https://vuex.vuejs.org/&quot;&gt;Vuex&lt;/a&gt; was used as the state container. Having a centralized store makes it easy to save and share Tacky boards.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt; was used to serve the application.&lt;/p&gt;
 &lt;h1&gt;Contribute&lt;/h1&gt;
-&lt;p&gt;I’m open to any and all contribution! Find the repo &lt;a href=&quot;https://gitlab.com/sliptype/tacky&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;I’m open to any and all contribution! Find the repo &lt;a href=&quot;https://gitlab.com/sliptype/tacky&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hallpass]]></title><description><![CDATA[Hallpass  is a password manager focused on security via biometrics. It allows users to sign in to websites on any device by using the…]]></description><link>https://sliptype.github.io//Hallpass/</link><guid isPermaLink="false">https://sliptype.github.io//Hallpass/</guid><pubDate>Sat, 07 Jan 2017 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;http://www.hallpass.io/&quot;&gt;Hallpass&lt;/a&gt; is a password manager focused on security via biometrics. It allows users to sign in to websites on any device by using the fingerprint sensor on their phone.&lt;/p&gt;
+&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Hallpass was conceived of at &lt;a href=&quot;https://www.hackdfw.com/&quot;&gt;Hack-DFW&lt;/a&gt; 2016 as a way to consolidate password management without having to rely on a master password. It uses AES-256 encryption and supports authorizing and deauthorizing multiple devices for each user.&lt;/p&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/hallpass-e6904d28f960cb7330a8b513e0909a58-367f4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block; ; max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 35.52492046659597%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAB3ElEQVQozz2Sy2sTURTG539w5V+hazeCKytUEHdiCwVRfFGsVgoikkV1LFWDggtBRBRJQ8G0GK1MCVqcGCKxaRUTrTaTx3SeSZqmJpm8ft4kxbM633fu/c4937lSu9Oh0fCo1xu0Wi3a7Tae5wmu8T8vlkqUymWazSadvfM9vlfvcYP79T6WEFF0HVzH6qV0u11M08Bx7AEWApaxhWOZDKKLJerVaqWParUatmVRqWz3a5KubyHP+Bk7c5E34SUhZjIz6+fy+FU+qVH+bGaQHzxiYuomP9I/WV//xi3fbcavXCeTyRCLf8E3LTM5dYOCriOlf21w/8kL5IcBlIjK5/gah4avsf/gKC8DYUJqkn2n7yEd8xFaSRBajHD4xCQHjpxHjSZYVGNceBrk+LkJVhMJpJxQze2Nt1vd5t1ylOGxuxwdkXkeeI8mJlhObhL5niP1W0PLaMwrKd6upMlls2wI7Pyt8yoYJJlcRcoLQd1xhMlNXNfmdfgDQyPTDI3e4fGzBXYrRWh5ol2HQj6PYxvMR7J8/KpjmwU0Tes/Jjg3R1yML7muS10Y2xIb2qmUUWNrnLrk5+TZWRaWVKo7ZWriBzTEVi1hvmXZdNoeTa+GYZh9z3uhKAqpVIp/w8HdrNeWLYQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;Hallpass&quot;
+        title=&quot;&quot;
+        src=&quot;/static/hallpass-e6904d28f960cb7330a8b513e0909a58-fb8a0.png&quot;
+        srcset=&quot;/static/hallpass-e6904d28f960cb7330a8b513e0909a58-1a291.png 148w,
+/static/hallpass-e6904d28f960cb7330a8b513e0909a58-2bc4a.png 295w,
+/static/hallpass-e6904d28f960cb7330a8b513e0909a58-fb8a0.png 590w,
+/static/hallpass-e6904d28f960cb7330a8b513e0909a58-526de.png 885w,
+/static/hallpass-e6904d28f960cb7330a8b513e0909a58-367f4.png 943w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;h2&gt;Stack&lt;/h2&gt;
+&lt;h3&gt;Backend&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://nodejs.org/en/about/&quot;&gt;Node.js&lt;/a&gt; in combination with &lt;a href=&quot;https://socket.io/&quot;&gt;socket.io&lt;/a&gt; was used to build the api and support push/pull connections.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.mongodb.com/&quot;&gt;MongoDB&lt;/a&gt; was used for efficient data retrieval&lt;/p&gt;
+&lt;h3&gt;Frontend&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://kotlinlang.org/&quot;&gt;Kotlin&lt;/a&gt; was used to develop the native Android app
+&lt;a href=&quot;https://developer.apple.com/swift/&quot;&gt;Swift&lt;/a&gt; was used to develop the native iOS app&lt;/p&gt;</content:encoded></item></channel></rss>
