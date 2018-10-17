@@ -14,6 +14,10 @@ const PostTitle = styled.h3`
   margin-bottom: 0;
 `
 
+const ReadMoreLink = styled.span`
+  margin: 0 1rem;
+`
+
 const postsPerPage = 3;
 
 const getPageIndex = (location) => Number.parseInt(location.hash.replace('#', ''));
@@ -46,7 +50,14 @@ const Index = (props) => {
               </Link>
             </PostTitle>
             <small>{node.frontmatter.date}</small>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            <p>
+              <span dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              <Link to={node.fields.slug} class='read-more'>
+                <ReadMoreLink>
+                  Read More
+                </ReadMoreLink>
+              </Link>
+            </p>
           </div>
         )
       })}
@@ -72,7 +83,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 240)
           fields {
             slug
           }

@@ -7,7 +7,7 @@ After falling in love with [Cycle.js](https://cycle.js.org/) for it's explicit, 
 
 [Snabbdom](https://github.com/snabbdom/snabbdom) provides a style module, but it merely applies inline styles and clutters the DOM. The limitations of inline styles (no :hover for example) make this a non-option in any non-trival application.
 
-Another suggested method was using [typestyle](https://github.com/typestyle/typestyle) to create hashed classnames to apply styles to elements. Typestyle makes css type-safe, which is an amazing benefit, but using it in Cycle.js introduces a side-effect: Styles are injected directly into the head *without going through a driver*. This goes against the architecture outlined by Cycle.  
+Another suggested method was using [typestyle](https://github.com/typestyle/typestyle) to create hashed classnames to apply styles to elements. Typestyle makes css type-safe, which is an amazing benefit, but using it in Cycle.js introduces a side-effect: Styles are injected directly into the head *without going through a driver*. This goes against the architecture outlined by Cycle.
 
 After reading some discussion on the subject, it seemed the consensus was to build a snabbdom module that would use typestyle to apply styles to elements and make the classname completely implicit. Thus, [snabbdom-typestyle](https://github.com/sliptype/snabbdom-typestyle) was born.
 

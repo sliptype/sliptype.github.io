@@ -14,7 +14,7 @@ const BlogPostTemplate =
       site: {
         siteMetadata: metadata
       },
-      markdownRemark: post 
+      markdownRemark: post
     },
     location
   }) => (
