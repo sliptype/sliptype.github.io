@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Sebastian Klingler | Front-end Engineer',
+    title: 'Sebastian Klingler | UI Engineer',
     author: 'Sebastian Klingler',
-    description: 'Front-end Engineer',
+    description: 'UI Engineer',
     siteUrl: 'https://sliptype.github.io/',
   },
   pathPrefix: '/',

@@ -31,12 +31,11 @@ const slideIn = keyframes`
 `
 
 const BackgroundContainer = styled.div`
-  height: 100vh;
-  max-height: 100vh;
-  min-height: 0vh;
   overflow: hidden;
-  animation: ${slideIn} .5s ease-in-out forwards;
-  margin-bottom: -10rem;
+  height: 25vw;
+  @media (min-width: 50rem) {
+    margin-bottom: -10rem;
+  }
 `
 
 const getTitle = (isIndex) => isIndex

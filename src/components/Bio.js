@@ -10,7 +10,7 @@ const BioContainer = styled.div`
 const Bio = () => (
   <BioContainer>
     <p>
-      Hi! I'm Sebastian Klingler. I'm a front-end engineer with a passion for building effective & maintainable systems.
+      Hi! I'm Sebastian Klingler. I'm a UI engineer with a passion for building effective & maintainable systems.
     </p>
     <Social />
   </BioContainer>
