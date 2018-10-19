@@ -33,6 +33,7 @@ const slideIn = keyframes`
 const BackgroundContainer = styled.div`
   overflow: hidden;
   height: 25vw;
+  max-height: 30rem;
   @media (min-width: 50rem) {
     margin-bottom: -10rem;
   }
