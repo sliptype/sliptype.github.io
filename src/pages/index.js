@@ -26,17 +26,21 @@ const postsPerPage = 3;
 
 const getPageIndex = (location) => Number.parseInt(location.hash.replace('#', ''));
 
+const postThreshold = (pageIndex) => (pageIndex + 1) * postsPerPage
+
 const slicePosts = (posts, pageIndex) => {
-  return posts.slice(0, pageIndex * postsPerPage)
+  const threshold = postThreshold(pageIndex)
+  return posts.slice(threshold - postsPerPage, threshold)
 }
 
-const isLastPage = (posts, pageIndex) => posts.length <= pageIndex * postsPerPage
+const isFirstPage = (pageIndex) => pageIndex === 0
+const isLastPage = (posts, pageIndex) => posts.length <= postThreshold(pageIndex)
 
 const Index = (props) => {
 
   const siteTitle = props.data.site.siteMetadata.title
   const posts = props.data.allMarkdownRemark.edges
-  const pageIndex = props.location.hash ? getPageIndex(props.location) + 1 : 1
+  const pageIndex = props.location.hash ? getPageIndex(props.location) : 0
 
   return (
     <Layout location={props.location}>
@@ -44,6 +48,14 @@ const Index = (props) => {
         <title>{siteTitle}</title>
       </Helmet>
       <Bio />
+      { !isFirstPage(pageIndex)
+        &&
+        <Link to={ `#${ pageIndex - 1 }` }>
+        <MorePostsLink>
+          Newer Posts...
+        </MorePostsLink>
+        </Link>
+      }
       {slicePosts(posts, pageIndex).map(({ node }) => {
         const title = get(node, 'frontmatter.title') || node.fields.slug
         return (
@@ -67,9 +79,9 @@ const Index = (props) => {
       })}
       { !isLastPage(posts, pageIndex)
         &&
-        <Link to={ `#${ pageIndex }` }>
+        <Link to={ `#${ pageIndex + 1 }` }>
           <MorePostsLink>
-            More...
+            Older Posts...
           </MorePostsLink>
         </Link>
       }

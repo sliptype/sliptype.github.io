@@ -26,9 +26,7 @@ const borders =
   , '0 0 0 100%'
   ]
 
-const entryPoint = 8;
-
-const randomElement = (array) => array[Math.floor(Math.random() * array.length)];
+const randomElement = (array) => array[Math.floor(Math.random() * array.length)]
 
 const makeCell = (id) => {
   const Cell = styled.div`
@@ -39,7 +37,7 @@ const makeCell = (id) => {
   return <Cell key={ id } className='cell' />
 }
 
-const makeCells = () => (new Array(100)).fill(0).map((_, id) => makeCell(id));
+const makeCells = () => (new Array(100)).fill(0).map((_, id) => makeCell(id))
 
 const Grid = ({ render }) => (
   <GridContainer>
