@@ -8,6 +8,8 @@ import Heading from './Heading'
 import Grid from './Grid'
 
 const Content = styled(AppContainer)`
+  max-width: 50rem;
+
   grid-column: 1 / span 10;
   grid-row: 3 / span 10;
   padding: 2rem;
