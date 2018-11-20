@@ -5,38 +5,32 @@ import styled, { keyframes } from 'styled-components'
 import AppContainer from './AppContainer'
 import Title from './Title'
 import Heading from './Heading'
-import Background from './Background'
+import Grid from './Grid'
 
 const Content = styled(AppContainer)`
-  position: relative;
-  margin: 0 auto 0;
+  grid-column: 1 / span 10;
+  grid-row: 3 / span 10;
+  padding: 2rem;
 
-  @media (max-width: 50rem) {
-    margin: 0 auto;
+  @media (min-width: 50rem) {
+    padding: 4rem;
   }
 
-  max-width: 50rem;
-  padding: 2rem 2rem;
-  z-index: 2;
+  @media (min-width: 80rem) {
+    grid-column: 3 / span 6;
+    grid-row: 2 / span 10;
+  }
+
+  @media (min-width: 170rem) {
+    grid-column: 4 / span 4;
+    grid-row: 2 / span 10;
+  }
+
   font-size: 1.1rem;
   background-color: white;
 `
 
-const slideIn = keyframes`
-  to {
-    height: 25vw;
-    max-height: 50vh;
-    min-height: 5vh;
-  }
-`
-
 const BackgroundContainer = styled.div`
-  overflow: hidden;
-  height: 25vw;
-  max-height: 30rem;
-  @media (min-width: 50rem) {
-    margin-bottom: -10rem;
-  }
 `
 
 const getTitle = (isIndex) => isIndex
@@ -55,26 +49,32 @@ const getTitle = (isIndex) => isIndex
       </Heading>
     )
 
-const getBackground = (isIndex) => isIndex
-  ? (
-      <BackgroundContainer>
-        <Background />
-      </BackgroundContainer>
-    )
-  : null
+const getContent = (isIndex, children) => isIndex
+      ? (
+          <Grid render={() => (
+            <Content>
+              { getTitle(isIndex) }
+              { children }
+            </Content>
+          )}/>
+      )
+      : (
+          <Content>
+            { getTitle(isIndex) }
+            { children }
+          </Content>
+        )
 
 const Layout = ({ location, children }) => {
   const isIndex = location.pathname === '/'
 
   return (
     <div>
-      { getBackground(isIndex) }
-      <Content>
-        { getTitle(isIndex) }
-        { children }
-      </Content>
+      { getContent(isIndex, children) }
     </div>
   )
 }
 
 export default Layout
+
+

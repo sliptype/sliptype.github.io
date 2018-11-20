@@ -5,8 +5,6 @@ date: "2017-09-20T22:40:32.169Z"
 
 [Tacky](http://www.the-tacky.com/) is a scenario discovery and management tool. It allows you to create a hierarchical description of user interactions with a system and transform it into a list of discrete test cases.
 
-## Motivation
-
 The linear way of writing test scenarios leaves a lot to be desired. Representing the state of a system without abstracting away the steps to get there becomes tedious and error-prone. 
 
 ## Usage

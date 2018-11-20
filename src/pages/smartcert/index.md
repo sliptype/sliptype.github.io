@@ -5,8 +5,6 @@ date: "2018-05-28T22:40:32.169Z"
 
 [SmartCert](https://www.smartcert.app/) is a decentralized application that allows corporations to issue certifications and individuals to provably display those certifications.
 
-## Motivation
-
 Upon receiving a certification (from Amazon for example), the burden of proof lies with whomever is trying to verify that you hold that certification. A prospective employer would need to contact Amazon and provide the number associated with your certification to verify that you actually received it.
 
 SmartCert utilizes the blockchain to make this process trust-less. The certifications are distributed from an issuer address to a holder address. Verification then becomes as simple as signing a message to prove ownership of the address holding the certification.

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const BackgroundContainer = styled.div`
+const GridContainer = styled.div`
   width: 100vw;
   height: 100vw;
   display: grid;
@@ -11,20 +11,22 @@ const BackgroundContainer = styled.div`
   z-index: 1;
 `
 
-const colors = [
-  'rgba(1, 186, 239)'
-  ,'rgba(31, 32, 65)'
-  ,'rgb(235, 186, 185)'
-  ,'rgba(17, 157, 164)'
-  ,'rgba(25, 100, 126)'
-]
+const colors =
+  [ 'rgb(1, 186, 239)'
+  , 'rgb(31, 32, 65)'
+  , 'rgb(235, 186, 185)'
+  , 'rgb(17, 157, 164)'
+  , 'rgb(25, 100, 126)'
+  ]
 
-const borders = [
-  '100% 0 0 0'
-  ,'0 100% 0 0'
-  ,'0 0 100% 0'
-  ,'0 0 0 100%'
-]
+const borders =
+  [ '100% 0 0 0'
+  , '0 100% 0 0'
+  , '0 0 100% 0'
+  , '0 0 0 100%'
+  ]
+
+const entryPoint = 8;
 
 const randomElement = (array) => array[Math.floor(Math.random() * array.length)];
 
@@ -34,15 +36,16 @@ const makeCell = (id) => {
     border-radius: ${ randomElement(borders) };
   `
 
-  return <Cell key={ id }/>
+  return <Cell key={ id } className='cell' />
 }
 
 const makeCells = () => (new Array(100)).fill(0).map((_, id) => makeCell(id));
 
-const Background = () => (
-  <BackgroundContainer>
+const Grid = ({ render }) => (
+  <GridContainer>
+    { render() }
     { makeCells() }
-  </BackgroundContainer>
+  </GridContainer>
 )
 
-export default Background
+export default Grid

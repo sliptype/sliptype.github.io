@@ -18,6 +18,10 @@ const ReadMoreLink = styled.span`
   margin: 0 1rem;
 `
 
+const MorePostsLink = styled.div`
+  margin: 0 0 2rem;
+`
+
 const postsPerPage = 3;
 
 const getPageIndex = (location) => Number.parseInt(location.hash.replace('#', ''));
@@ -52,7 +56,7 @@ const Index = (props) => {
             <small>{node.frontmatter.date}</small>
             <p>
               <span dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              <Link to={node.fields.slug} class='read-more'>
+              <Link to={node.fields.slug}>
                 <ReadMoreLink>
                   Read More
                 </ReadMoreLink>
@@ -64,7 +68,9 @@ const Index = (props) => {
       { !isLastPage(posts, pageIndex)
         &&
         <Link to={ `#${ pageIndex }` }>
-          More...
+          <MorePostsLink>
+            More...
+          </MorePostsLink>
         </Link>
       }
     </Layout>
