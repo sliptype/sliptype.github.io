@@ -8,31 +8,20 @@ import Heading from './Heading'
 import Grid from './Grid'
 
 const Content = styled(AppContainer)`
+  font-size: 1.1rem;
+  background-color: white;
   max-width: 50rem;
-
-  grid-column: 1 / span 10;
-  grid-row: 3 / span 10;
   padding: 2rem;
 
   @media (min-width: 50rem) {
-    padding: 4rem;
+    padding: 8rem 4rem;
+    margin-left: 20vw;
   }
 
-  @media (min-width: 80rem) {
-    grid-column: 3 / span 6;
-    grid-row: 2 / span 10;
+  @media (min-width: 70rem) {
+    margin-left: 30vw;
   }
 
-  @media (min-width: 170rem) {
-    grid-column: 4 / span 4;
-    grid-row: 2 / span 10;
-  }
-
-  font-size: 1.1rem;
-  background-color: white;
-`
-
-const BackgroundContainer = styled.div`
 `
 
 const getTitle = (isIndex) => isIndex

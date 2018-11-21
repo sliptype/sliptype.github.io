@@ -2,13 +2,34 @@ import React from 'react'
 import styled from 'styled-components'
 
 const GridContainer = styled.div`
-  width: 100vw;
-  height: 100vw;
   display: grid;
-  grid-template-rows: repeat(10, 1fr);
+  height: 20vw;
+  width: 100vw;
+  grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(10, 1fr);
-  margin-bottom: 3rem;
-  z-index: 1;
+
+  @media (min-width: 50rem) {
+    position: fixed;
+    height: 100vw;
+    width: 20vw;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 70rem) {
+    width: 30vw;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+`
+
+const FlexRow = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 50rem) {
+    flex-direction: row;
+  }
 `
 
 const colors =
@@ -40,10 +61,12 @@ const makeCell = (id) => {
 const makeCells = () => (new Array(100)).fill(0).map((_, id) => makeCell(id))
 
 const Grid = ({ render }) => (
-  <GridContainer>
+  <FlexRow>
+    <GridContainer>
+        { makeCells() }
+    </GridContainer>
     { render() }
-    { makeCells() }
-  </GridContainer>
+  </FlexRow>
 )
 
 export default Grid
