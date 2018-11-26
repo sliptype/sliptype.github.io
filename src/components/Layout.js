@@ -12,16 +12,18 @@ const Content = styled(AppContainer)`
   background-color: white;
   max-width: 50rem;
   padding: 2rem;
+  margin: auto;
+`
 
-  @media (min-width: 50rem) {
+const IndexContent = styled(Content)`
+  @media (min-aspect-ratio: 1/1) {
     padding: 8rem 4rem;
     margin-left: 20vw;
   }
 
-  @media (min-width: 70rem) {
+  @media (min-aspect-ratio: 3/2) {
     margin-left: 30vw;
   }
-
 `
 
 const getTitle = (isIndex) => isIndex
@@ -43,10 +45,10 @@ const getTitle = (isIndex) => isIndex
 const getContent = (isIndex, children) => isIndex
       ? (
           <Grid render={() => (
-            <Content>
+            <IndexContent>
               { getTitle(isIndex) }
               { children }
-            </Content>
+            </IndexContent>
           )}/>
       )
       : (

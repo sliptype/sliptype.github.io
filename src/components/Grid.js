@@ -8,7 +8,7 @@ const GridContainer = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(10, 1fr);
 
-  @media (min-width: 50rem) {
+  @media (min-aspect-ratio: 1/1) {
     position: fixed;
     height: 100vw;
     width: 20vw;
@@ -16,7 +16,7 @@ const GridContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 70rem) {
+  @media (min-aspect-ratio: 3/2) {
     width: 30vw;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -27,7 +27,7 @@ const FlexRow = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 50rem) {
+  @media (min-aspect-ratio: 1/1) {
     flex-direction: row;
   }
 `
