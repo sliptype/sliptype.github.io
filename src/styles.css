@@ -11,3 +11,9 @@ a {
 h1 {
   margin: 0;
 }
+
+code.language-text {
+  border-radius: 0;
+  padding-right: 5px;
+  padding-left: 5px;
+}
