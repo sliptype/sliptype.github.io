@@ -13,7 +13,8 @@ h1 {
 }
 
 code.language-text {
-  border-radius: 0;
+  background-color: lightblue;
+  color: black;
   padding-right: 5px;
   padding-left: 5px;
 }
