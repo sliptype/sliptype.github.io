@@ -1,13 +1,14 @@
 ---
 title: Functional Front-End with Vue and Purescript
-data: "2019-04-06"
+date: "2019-04-06"
 ---
+
 I often find myself in situations where I am hesitant to make a change because it's impossible to tell what will break.
 
 When a number of things implicitly depend on one another, there is no risk-free change.
 
 Rich Hickey (the creator of Clojure) gave [a really great talk][1]. He points out that there are two types of complexity:
-> _Inherent complexity_ is fundamental to the business logic and exists in any domain.
+> _Inherent complexity_ is fundamental to business logic and exists in any domain.
 
 > _Incidental complexity_ is introduced by design decisions.
 
