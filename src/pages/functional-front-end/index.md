@@ -17,12 +17,12 @@ It is incidental complexity we can avoid and should strive to minimize.
 
 In my experience, one of the primary contributors to incidental complexity is shared mutable state. To understand shared mutable state let's first define mutability:
 
-> _Mutability_ is the idea that a value can be changed.
+> _Mutability_ is the idea that a value can change.
 
 In Javascript for example, if we have a variable containing a number we can assign a different number to it.
 
 If multiple places reference that variable, they will all implicitly depend on any process that changes the value.
-> _Shared mutability_ is when multiple entities reference a shared bit of state that can be changed.
+> _Shared mutability_ is when multiple entities reference some mutable state.
 
 When working in an environment with lots of shared mutability, the burden falls on the programmer to map the relationships between different entitites and processes. It is no longer explicit what depends on what, or which order things need to occur.
 
@@ -160,7 +160,7 @@ The same thing can be achieved in Javascript, and arrow functions make it especi
 ```javascript
 const add = x => y => x + y;
 
-const add1 = x => add(1)(x);
+const add1 = add(1);
 
 add1(2); // returns 3
 ```
@@ -282,9 +282,20 @@ counterReducer _ state = state
 The counter reducer is a function taking an `Action`, a `State`, and returning a `State`. It pattern matches the incoming action, pulls out the payload, and performs the business logic.
 There is also a base case which handles Actions not matching those specified.
 
-A corresponding reducer in Javascript is much more verbose:
+A corresponding reducer in Javascript is more verbose:
 
-TODO: Javascript reducer
+```javascript
+const counterReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case INCREMENT:
+      return state + payload
+    case DECREMENT:
+      return state - payload
+    default:
+      return state
+  }
+}
+```
 
 To tie the Counter component to it's reducer we use the `Provider` component provided by `vuejs-redux` and pass it 2 functions:
 * `mapStateToProps` takes a State and returns the props to be passed to the component
