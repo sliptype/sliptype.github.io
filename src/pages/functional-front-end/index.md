@@ -315,7 +315,7 @@ This function accepts any record type that contains a `counter` field of type `S
 
 ## Conclusion
 
-Purescript is especially easy to integrate into an existing project. It can be used in conjuction with modern javascript tools to make business logic more robust and testable.
+Purescript is especially easy to integrate into an existing project. It can be used in conjuction with modern Javascript tools to make business logic more robust and testable.
 
 If you have complex business logic slowing your productivity I recommend looking into functional programming. It can go a long way towards code clarity.
 
