@@ -6,8 +6,8 @@
 /* sc-component-id: sc-htpNat */
 .fnZiow{margin-bottom:0;}
 /* sc-component-id: sc-EHOje */
-.hTQIPu{font-size:1.1rem;background-color:white;max-width:50rem;padding:2rem;margin:auto;}</style><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">Functional Front-End with Vue and Purescript | Sebastian Klingler | UI Engineer</title><link as="script" rel="preload" href="/webpack-runtime-7d16329a1828857642db.js"/><link as="script" rel="preload" href="/app-85f5a2f308107433bd3c.js"/><link as="script" rel="preload" href="/0-4f683800a7044588c805.js"/><link as="script" rel="preload" href="/1-639a90c3d8df22a6dda8.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-8ecb68ea290daf0098fb.js"/><link rel="preload" href="/static/d/path---functional-front-end-704-af8-UPkVIA4bKFlZlUFzaauxMs6hVg.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div data-reactroot=""><div class="sc-EHOje hTQIPu sc-bdVaJa gCZdiK"><h3 class="sc-htpNat fnZiow"><a href="/">@sliptype</a></h3><h1 class="sc-bwzfXH hurzmA">Functional Front-End with Vue and Purescript</h1><small>April 06, 2019</small><div><p>I often find myself in situations where I am hesitant to make a change because it’s impossible to tell what will break.</p>
-<p>When a number of things implicitly depend on one another, there is no risk-free change.</p>
+.hTQIPu{font-size:1.1rem;background-color:white;max-width:50rem;padding:2rem;margin:auto;}</style><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">Functional Front-End with Vue and Purescript | Sebastian Klingler | UI Engineer</title><link as="script" rel="preload" href="/webpack-runtime-5540171277c4933f0a79.js"/><link as="script" rel="preload" href="/app-85f5a2f308107433bd3c.js"/><link as="script" rel="preload" href="/0-4f683800a7044588c805.js"/><link as="script" rel="preload" href="/1-639a90c3d8df22a6dda8.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-8ecb68ea290daf0098fb.js"/><link rel="preload" href="/static/d/path---functional-front-end-704-af8-MRd4ZUVf7MhK7UyAHEuDTSFfEFM.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div data-reactroot=""><div class="sc-EHOje hTQIPu sc-bdVaJa gCZdiK"><h3 class="sc-htpNat fnZiow"><a href="/">@sliptype</a></h3><h1 class="sc-bwzfXH hurzmA">Functional Front-End with Vue and Purescript</h1><small>April 06, 2019</small><div><p>I often find myself in situations where I am hesitant to make a change because it’s impossible to tell what will break.</p>
+<p>When many things implicitly depend on one another, there is no risk-free change.</p>
 <p>Rich Hickey (the creator of Clojure) gave <a href="https://www.infoq.com/presentations/Simple-Made-Easy">a really great talk</a>. He points out that there are two types of complexity:</p>
 <blockquote>
 <p><em>Inherent complexity</em> is fundamental to business logic and exists in any domain.</p>
@@ -21,30 +21,30 @@
 <blockquote>
 <p><em>Mutability</em> is the idea that a value can change.</p>
 </blockquote>
-<p>In Javascript for example, if we have a variable containing a number we can assign a different number to it.</p>
+<p>In Javascript, for example, if we have a variable containing a number we can assign a new value to it.</p>
 <p>If multiple places reference that variable, they will all implicitly depend on any process that changes the value.</p>
 <blockquote>
 <p><em>Shared mutability</em> is when multiple entities reference some mutable state.</p>
 </blockquote>
-<p>When working in an environment with lots of shared mutability, the burden falls on the programmer to map the relationships between different entitites and processes. It is no longer explicit what depends on what, or which order things need to occur.</p>
+<p>When working in an environment with lots of shared state, the burden falls on the programmer to map the relationships between different entitites and processes. It is no longer clear what depends on what, or which order things need to occur.</p>
 <h2>Simplicity</h2>
 <p>Luckily, there are powerful tools available in the Javascript ecosystem to reduce shared mutability and in turn, complexity.</p>
 <p><a href="https://facebook.github.io/flux/">Flux</a> is a convention for structuring state updates popularized by Facebook. It prescribes that the state of an application can only be updated in a single place, making it much easier to reason about.</p>
 <p>Popular implementations of Flux include <a href="https://redux.js.org/">Redux</a> and <a href="https://vuex.vuejs.org/">Vuex</a>. Redux is fully immutable, and Vuex is fully mutable, but both follow the principles of Flux. They also prioritize the separation of business logic and view logic.</p>
-<p>Using these libraries is a step in the right direction, but I wanted to take the reduction of shared mutability to it’s logical conclusion.</p>
+<p>Using these libraries is a step in the right direction, but I wanted to take the reduction of shared mutability to the next level. This is where functional programming comes in.</p>
 <h2>Functional Programming</h2>
 <p>Functional programming, or FP for short, is a programming paradigm that actively avoids shared mutability. It is a very different approach from Object Oriented programming.</p>
 <p>In FP, all values are immutable. The primary building blocks are functions, and most importantly pure functions:</p>
 <blockquote>
 <p><em>Pure functions</em> always return the same output for a given input and do not have any side effects.</p>
 </blockquote>
-<p>Pure functions are highly testable because nothing outside of the function needs to be considered. The inputs must simply be matched with the expected outputs.</p>
+<p>Pure functions are highly testable because nothing outside of the function needs to be considered. The inputs must simply match the expected outputs.</p>
 <p>Most functional languages also have a strong static type system. Types are checked at compile time and a whole class of run time bugs are eliminated.</p>
 <p>While FP prioritizes purity, it does allow for side effects. The side effects are controlled and encoded directly into the type system. When a function does affect something outside of itself, you can tell by the function signature.</p>
-<p>As a whole, these features lead to programs that are easier to reason about.</p>
+<p>As a whole, these features lead to programs that are easier to reason about because they are more explicit and declarative about their intent.</p>
 <h2>Purescript</h2>
 <p>You can get some of the benefits of functional programming by using things like Redux, Typescript, and Immutable.js.</p>
-<p>However, Javascript was not designed to be a functional language. The tools we layer on top never solve 100% of the problem and are never quite as ergonomic as using something with these ideals baked in.</p>
+<p>However, Javascript was not designed to be a functional language. The tools we layer on top never completely solve the problem and are never quite as ergonomic as using something with these ideals baked in.</p>
 <p>I began using <a href="http://www.purescript.org/">Purescript</a> to apply FP techniques to front end applications. Purescript compiles to Javascript meaning you get 100% of the cross platform support with 100% of the benefits of a pure functional language.</p>
 <p>There are alternatives to Purescript such as ReasonML, Elm, or even compiling Haskell to Javascript. However, I have found Purescript to be easy to work with while still being extremely powerful.</p>
 <h2>Language Features</h2>
@@ -55,7 +55,7 @@
 <span class="token hvariable">f</span> <span class="token hvariable">true</span> <span class="token operator">=</span> <span class="token string">"It's true"</span>
 <span class="token hvariable">f</span> <span class="token hvariable">false</span> <span class="token operator">=</span> <span class="token string">"It's not :("</span></code></pre>
       </div>
-<p>Here we see a function <code class="language-text">f</code> with the type <code class="language-text">Boolean -&gt; String</code>. The type annotation tells us <code class="language-text">f</code> accepts a Boolean argument and returns a String.</p>
+<p>Here we see a function <code class="language-text">f</code> with the type <code class="language-text">Boolean -&gt; String</code>. The type annotation tells us that <code class="language-text">f</code> accepts a Boolean argument and returns a String.</p>
 <p>The two lines below the type annotation are pattern matching cases. When this function is evaluated, Purescript will run through these cases to find the first pattern which matches the arguments. If <code class="language-text">f</code> is passed true it will return <code class="language-text">It&#39;s true</code>. Otherwise, if <code class="language-text">f</code> is passed false, it will return <code class="language-text">It&#39;s not :(</code>.</p>
 <p>The compiler also ensures that all possible cases are accounted for, meaning that it will alert you when you forget to handle a possible variation of the arguments.</p>
 <p>Pattern matching is a declarative way to write logic that would look quite different in Javascript. In Javascript you would presumably write a conditional to check the value of the argument:</p>
@@ -99,8 +99,8 @@
 <p>Something like this in Javascript would be more verbose and less declarative.</p>
 <h3>Tagged Unions</h3>
 <p>One of my favorite things about Purescript is that there is no concept of null or undefined.</p>
-<p>The inventor of the null reference called it a billion-dollar mistake. Who hasn’t run into <code class="language-text">cannot read property x of undefined</code>?</p>
-<p>Purescript explicitly calls out the possibility of the lack of a value in it’s type system. The way this is done is using tagged unions:</p>
+<p>The inventor of the null reference called it a billion-dollar mistake. Who hasn’t run into the error: <code class="language-text">cannot read property x of undefined</code>?</p>
+<p>Purescript declares the possibility of the lack of a value in it’s type system. The way this is done is using tagged unions:</p>
 <div class="gatsby-highlight" data-language="haskell">
       <pre class="language-haskell"><code class="language-haskell"><span class="token keyword">data</span> <span class="token constant">Maybe</span> <span class="token hvariable">a</span> <span class="token operator">=</span> <span class="token constant">Just</span> <span class="token hvariable">a</span> <span class="token operator">|</span> <span class="token constant">Nothing</span></code></pre>
       </div>
@@ -114,7 +114,11 @@
 <p><code class="language-text">defaultName</code> accepts a <code class="language-text">Maybe String</code>. It pattern matches on the two possible cases of <code class="language-text">Just String</code> and <code class="language-text">Nothing</code> to return the appropriate value. And of course, the compiler will complain if a possible case is left out.</p>
 <p>Encoding the lack of values into the type system means that you will be hard pressed to run into a runtime situation where something is undefined.</p>
 <h3>Partial Application</h3>
-<p>In Purescript, every function is automatically curried. If a function is invoked with fewer than it’s specified number of arguments, a new function is returned accepting the remaining arguments. This allows you to make a specific function out of a general one. For example:</p>
+<p>In Purescript, every function is automatically curried.</p>
+<blockquote>
+<p><em>Currying</em> means when a function is invoked with fewer than it’s specified number of arguments, a new function is returned accepting the remaining arguments.</p>
+</blockquote>
+<p>This allows you to make a specific function out of a general one. For example:</p>
 <div class="gatsby-highlight" data-language="haskell">
       <pre class="language-haskell"><code class="language-haskell"><span class="token hvariable">add</span> <span class="token hvariable">x</span> <span class="token hvariable">y</span> <span class="token operator">=</span> <span class="token hvariable">x</span> <span class="token operator">+</span> <span class="token hvariable">y</span>
 <span class="token hvariable">add1</span> <span class="token operator">=</span> <span class="token hvariable">add</span> <span class="token number">1</span>
@@ -153,8 +157,9 @@
 <p>Notice that we can forego declaring the argument for <code class="language-text">add1Multiply2</code> and passing it into <code class="language-text">add1</code>.</p>
 <p>Not having to worry about wiring together the arguments allows us to think about the function at a higher level, as simply the composition of <code class="language-text">add1</code> and <code class="language-text">multiply2</code>.</p>
 <h2>Using Purescript with Vue</h2>
+<p>You can find the source code for an example Vue application built with Purescript <a href="https://github.com/sliptype/vue-pure">here</a>.</p>
 <p>Purescript is built to interop with Javascript. The webpack plugin <a href="https://github.com/ethul/purs-loader">purs-loader</a> will bundle your modules and allow you to import them into your project.</p>
-<p>Vue supports custom build configuration in <code class="language-text">vue.config.js</code> meaning we don’t have to eject our app like we would in React:</p>
+<p>Vue projects built with the Vue cli support custom build configuration in <code class="language-text">vue.config.js</code>. We don’t have to eject our app like we would in React:</p>
 <div class="gatsby-highlight" data-language="javascript">
       <pre class="language-javascript"><code class="language-javascript"><span class="token comment">// vue.config.js</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -173,13 +178,13 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token keyword">import</span> <span class="token punctuation">{</span> reducer <span class="token keyword">as</span> board <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./Board/Reducer.purs'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> initialAction <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./App/Reducer.purs'</span></code></pre>
       </div>
-<p>You can find the source code for an example vue application built with Purescript <a href="https://github.com/sliptype/vue-pure">here</a>.</p>
+<p>Note the <code class="language-text">.purs</code> extension which lets webpack resolve the file and use the correct loader.</p>
 <h2>Vuex vs Redux</h2>
 <p>Vuex is not a good candidate for Purescript interop because it depends on mutability.</p>
-<p>Purescript has no concept of mutability and using it with Vuex would require mapping immutable state updates to the mutable Vuex state. Although not impossible, it does present a performance concern as well as hindering reducer composition.</p>
+<p>Purescript has no concept of mutability and using it with Vuex would require mapping immutable state updates to the mutable Vuex state. Although possible, it presents a performance concern as well as hindering reducer composition.</p>
 <p>Fortunately, Redux is fully immutable and has bindings that work well with Vue. In particular I used <a href="https://github.com/titouancreach/vuejs-redux">vuejs-redux</a>.</p>
 <h2>Canonical Counter Example</h2>
-<p>The Counter Vue component is a “dumb” component. It merely expects <code class="language-text">props</code> and <code class="language-text">actions</code>, without access to how the state is being handled. The Counter displays a value and buttons for dispatching <code class="language-text">increment</code> and <code class="language-text">decrement</code> actions:</p>
+<p>The Counter Vue component is a “dumb” component. It merely consumes <code class="language-text">props</code> and <code class="language-text">actions</code>, without access to how the state is being handled. The Counter displays a value and buttons for dispatching <code class="language-text">increment</code> and <code class="language-text">decrement</code> actions:</p>
 <div class="gatsby-highlight" data-language="html">
       <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
@@ -215,7 +220,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token hvariable">counterReducer</span> <span class="token hvariable">_</span> <span class="token hvariable">state</span> <span class="token operator">=</span> <span class="token hvariable">state</span></code></pre>
       </div>
 <p>The counter reducer is a function taking an <code class="language-text">Action</code>, a <code class="language-text">State</code>, and returning a <code class="language-text">State</code>. It pattern matches the incoming action, pulls out the payload, and performs the business logic.
-There is also a base case which handles Actions not matching those specified.</p>
+There is also a base case which handles Actions not matching those specified (again, using the underscore to denote the value is not used).</p>
 <p>A corresponding reducer in Javascript is more verbose:</p>
 <div class="gatsby-highlight" data-language="javascript">
       <pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">counterReducer</span> <span class="token operator">=</span> <span class="token punctuation">(</span>state <span class="token operator">=</span> initialState<span class="token punctuation">,</span> <span class="token punctuation">{</span> type<span class="token punctuation">,</span> payload <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
@@ -256,4 +261,4 @@ There is also a base case which handles Actions not matching those specified.</p
   if (typeof ga === "function") {
     ga('create', 'undefined', 'auto');
       }
-      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"functional-front-end-704","path":"/functional-front-end/"};window.dataPath="path---functional-front-end-704-af8-UPkVIA4bKFlZlUFzaauxMs6hVg";/*]]>*/</script><script src="/component---src-templates-blog-post-js-8ecb68ea290daf0098fb.js" async=""></script><script src="/1-639a90c3d8df22a6dda8.js" async=""></script><script src="/0-4f683800a7044588c805.js" async=""></script><script src="/app-85f5a2f308107433bd3c.js" async=""></script><script src="/webpack-runtime-7d16329a1828857642db.js" async=""></script></body></html>
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"functional-front-end-704","path":"/functional-front-end/"};window.dataPath="path---functional-front-end-704-af8-MRd4ZUVf7MhK7UyAHEuDTSFfEFM";/*]]>*/</script><script src="/component---src-templates-blog-post-js-8ecb68ea290daf0098fb.js" async=""></script><script src="/1-639a90c3d8df22a6dda8.js" async=""></script><script src="/0-4f683800a7044588c805.js" async=""></script><script src="/app-85f5a2f308107433bd3c.js" async=""></script><script src="/webpack-runtime-5540171277c4933f0a79.js" async=""></script></body></html>
