@@ -5,7 +5,7 @@ date: "2019-04-06"
 
 I often find myself in situations where I am hesitant to make a change because it's impossible to tell what will break.
 
-When a number of things implicitly depend on one another, there is no risk-free change.
+When many things implicitly depend on one another, there is no risk-free change.
 
 Rich Hickey (the creator of Clojure) gave [a really great talk][1]. He points out that there are two types of complexity:
 > _Inherent complexity_ is fundamental to business logic and exists in any domain.
@@ -20,12 +20,12 @@ In my experience, one of the primary contributors to incidental complexity is sh
 
 > _Mutability_ is the idea that a value can change.
 
-In Javascript for example, if we have a variable containing a number we can assign a different number to it.
+In Javascript, for example, if we have a variable containing a number we can assign a new value to it.
 
 If multiple places reference that variable, they will all implicitly depend on any process that changes the value.
 > _Shared mutability_ is when multiple entities reference some mutable state.
 
-When working in an environment with lots of shared mutability, the burden falls on the programmer to map the relationships between different entitites and processes. It is no longer explicit what depends on what, or which order things need to occur.
+When working in an environment with lots of shared state, the burden falls on the programmer to map the relationships between different entitites and processes. It is no longer clear what depends on what, or which order things need to occur.
 
 ## Simplicity
 
@@ -35,7 +35,7 @@ Luckily, there are powerful tools available in the Javascript ecosystem to reduc
 
 Popular implementations of Flux include [Redux][3] and [Vuex][4]. Redux is fully immutable, and Vuex is fully mutable, but both follow the principles of Flux. They also prioritize the separation of business logic and view logic.
 
-Using these libraries is a step in the right direction, but I wanted to take the reduction of shared mutability to it's logical conclusion.
+Using these libraries is a step in the right direction, but I wanted to take the reduction of shared mutability to the next level. This is where functional programming comes in.
 
 ## Functional Programming
 Functional programming, or FP for short, is a programming paradigm that actively avoids shared mutability. It is a very different approach from Object Oriented programming.
@@ -44,19 +44,19 @@ In FP, all values are immutable. The primary building blocks are functions, and 
 
 > _Pure functions_ always return the same output for a given input and do not have any side effects.
 
-Pure functions are highly testable because nothing outside of the function needs to be considered. The inputs must simply be matched with the expected outputs.
+Pure functions are highly testable because nothing outside of the function needs to be considered. The inputs must simply match the expected outputs.
 
 Most functional languages also have a strong static type system. Types are checked at compile time and a whole class of run time bugs are eliminated.
 
 While FP prioritizes purity, it does allow for side effects. The side effects are controlled and encoded directly into the type system. When a function does affect something outside of itself, you can tell by the function signature.
 
-As a whole, these features lead to programs that are easier to reason about.
+As a whole, these features lead to programs that are easier to reason about because they are more explicit and declarative about their intent.
 
 ## Purescript
 
 You can get some of the benefits of functional programming by using things like Redux, Typescript, and Immutable.js.
 
-However, Javascript was not designed to be a functional language. The tools we layer on top never solve 100% of the problem and are never quite as ergonomic as using something with these ideals baked in.
+However, Javascript was not designed to be a functional language. The tools we layer on top never completely solve the problem and are never quite as ergonomic as using something with these ideals baked in.
 
 I began using [Purescript][5] to apply FP techniques to front end applications. Purescript compiles to Javascript meaning you get 100% of the cross platform support with 100% of the benefits of a pure functional language.
 
@@ -74,7 +74,7 @@ f true = "It's true"
 f false = "It's not :("
 ```
 
-Here we see a function `f` with the type `Boolean -> String`. The type annotation tells us `f` accepts a Boolean argument and returns a String.
+Here we see a function `f` with the type `Boolean -> String`. The type annotation tells us that `f` accepts a Boolean argument and returns a String.
 
 The two lines below the type annotation are pattern matching cases. When this function is evaluated, Purescript will run through these cases to find the first pattern which matches the arguments. If `f` is passed true it will return `It's true`. Otherwise, if `f` is passed false, it will return `It's not :(`.
 
@@ -122,9 +122,9 @@ Something like this in Javascript would be more verbose and less declarative.
 
 One of my favorite things about Purescript is that there is no concept of null or undefined.
 
-The inventor of the null reference called it a billion-dollar mistake. Who hasn't run into `cannot read property x of undefined`?
+The inventor of the null reference called it a billion-dollar mistake. Who hasn't run into the error: `cannot read property x of undefined`?
 
-Purescript explicitly calls out the possibility of the lack of a value in it's type system. The way this is done is using tagged unions:
+Purescript declares the possibility of the lack of a value in it's type system. The way this is done is using tagged unions:
 
 ```haskell
 data Maybe a = Just a | Nothing
@@ -146,7 +146,10 @@ Encoding the lack of values into the type system means that you will be hard pre
 
 ### Partial Application
 
-In Purescript, every function is automatically curried. If a function is invoked with fewer than it's specified number of arguments, a new function is returned accepting the remaining arguments. This allows you to make a specific function out of a general one. For example:
+In Purescript, every function is automatically curried.
+> _Currying_ means when a function is invoked with fewer than it's specified number of arguments, a new function is returned accepting the remaining arguments.
+
+This allows you to make a specific function out of a general one. For example:
 
 ```haskell
 add x y = x + y
@@ -201,9 +204,11 @@ Not having to worry about wiring together the arguments allows us to think about
 
 ## Using Purescript with Vue
 
+You can find the source code for an example Vue application built with Purescript [here][7].
+
 Purescript is built to interop with Javascript. The webpack plugin [purs-loader][6] will bundle your modules and allow you to import them into your project.
 
-Vue supports custom build configuration in `vue.config.js` meaning we don't have to eject our app like we would in React:
+Vue projects built with the Vue cli support custom build configuration in `vue.config.js`. We don't have to eject our app like we would in React:
 
 ```javascript
 // vue.config.js
@@ -226,19 +231,19 @@ import { reducer as board } from './Board/Reducer.purs'
 import { initialAction } from './App/Reducer.purs'
 ```
 
-You can find the source code for an example vue application built with Purescript [here][7].
+Note the `.purs` extension which lets webpack resolve the file and use the correct loader.
 
 ## Vuex vs Redux
 
 Vuex is not a good candidate for Purescript interop because it depends on mutability.
 
-Purescript has no concept of mutability and using it with Vuex would require mapping immutable state updates to the mutable Vuex state. Although not impossible, it does present a performance concern as well as hindering reducer composition.
+Purescript has no concept of mutability and using it with Vuex would require mapping immutable state updates to the mutable Vuex state. Although possible, it presents a performance concern as well as hindering reducer composition.
 
 Fortunately, Redux is fully immutable and has bindings that work well with Vue. In particular I used [vuejs-redux][8].
 
 ## Canonical Counter Example
 
-The Counter Vue component is a "dumb" component. It merely expects `props` and `actions`, without access to how the state is being handled. The Counter displays a value and buttons for dispatching `increment` and `decrement` actions:
+The Counter Vue component is a "dumb" component. It merely consumes `props` and `actions`, without access to how the state is being handled. The Counter displays a value and buttons for dispatching `increment` and `decrement` actions:
 
 ```html
 <template>
@@ -281,7 +286,7 @@ counterReducer _ state = state
 ```
 
 The counter reducer is a function taking an `Action`, a `State`, and returning a `State`. It pattern matches the incoming action, pulls out the payload, and performs the business logic.
-There is also a base case which handles Actions not matching those specified.
+There is also a base case which handles Actions not matching those specified (again, using the underscore to denote the value is not used).
 
 A corresponding reducer in Javascript is more verbose:
 
